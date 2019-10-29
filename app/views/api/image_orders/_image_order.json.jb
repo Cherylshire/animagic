@@ -1,0 +1,6 @@
+{
+  id: image_order.id,
+  user_id: image_order.user_id,
+  image: ( render partial: "api/images/image", locals: {image: image_order.image }),
+  placement: image_order.placement
+}

@@ -1,0 +1,3 @@
+@image_orders.map do |image_order|
+  render partial: 'image_order.json.jb', locals: {image_order: image_order}
+end
