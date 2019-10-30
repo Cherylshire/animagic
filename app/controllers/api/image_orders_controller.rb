@@ -9,19 +9,20 @@ class Api::ImageOrdersController < ApplicationController
     placement_datas = params[:placements] # an array of 9 hashes. Example: {image_id: 3, placement: 9}
 
     placement_datas.each do |placement_data|
-      puts "+=+=" * 20
-      puts "this is placement_data:"
-      p placement_data # test this
-      puts "+=+=" * 20
-      image_order = ImageOrder.find_or_create_by(
+      @image_order = ImageOrder.find_or_create_by(
                                     image_id: placement_data[:image_id],
                                     user_id: current_user.id
                                     )
-      image_order.update( placement: placement_data[:placement] )
+      @image_order.update( placement: placement_data[:placement] )
     end
 
-    @image_orders = current_user.image_orders
+    @image_orders = current_user.image_orders.order(:placement)
     render 'index.json.jb'
+  end
+
+  def show
+    @image_order = ImageOrder.find(current_user.image.placement)
+    render 'show.json.jb'
   end
 
   def update
