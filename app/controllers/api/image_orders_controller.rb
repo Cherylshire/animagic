@@ -29,7 +29,7 @@ class Api::ImageOrdersController < ApplicationController
     @image_order = ImageOrder.find(params[:id])
 
     @image_order.image_id  = params[:image_id] || @image_order.image_id
-    @image_order.user_id   = params[:user_id]  || @image_order.user_id
+    @image_order.user_id   = current_user.id  || @image_order.user_id
     @image_order.placement = params[:placement]|| @image_order.placement
 
     @image_order.save
