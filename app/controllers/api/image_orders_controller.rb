@@ -1,7 +1,7 @@
 class Api::ImageOrdersController < ApplicationController
   
   def index
-    @image_orders = ImageOrder.all
+    @image_orders = current_user.image_orders.order(:placement)
     render 'index.json.jb'
   end
 
