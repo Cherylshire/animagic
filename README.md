@@ -1,6 +1,6 @@
 # README
 
-Animagic is a backend application, the frontend being Animagic_vue. This app was started while learning Ruby, Rails, HTML, CSS, JavaScript and Vue.js in a coding bootcamp. It will be continue being updated in the future.
+Animagic is a backend application, the frontend being Animagic_vue and Animgic_canvas_vue. This app was started while learning Ruby, Rails, HTML, CSS, JavaScript and Vue.js in a coding bootcamp. It will be continue being updated in the future.
 
 
 This README would normally document whatever steps are necessary to get the
