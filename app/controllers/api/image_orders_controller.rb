@@ -2,6 +2,16 @@ class Api::ImageOrdersController < ApplicationController
   
   def index
     @image_orders = current_user.image_orders.order(:placement)
+
+    if @image_orders.length < 10
+      @image_orders = Image.all.order(:id).map.with_index {|image, index| 
+        ImageOrder.new(
+          user_id: current_user.id,
+          image_id: image.id,
+          placement: index + 1
+        )
+      }
+    end
     render 'index.json.jb'
   end
 
@@ -16,8 +26,15 @@ class Api::ImageOrdersController < ApplicationController
       @image_order.update( placement: placement_data[:placement] )
     end
 
-    @image_orders = current_user.image_orders.order(:placement)
-    render 'index.json.jb'
+    # check that 1 placement 1 through 10 exist for this user
+    errors = current_user.bad_placements
+
+    if errors
+      render json: {errors: errors}, status: :unprocessable_entity
+    else
+      @image_orders = current_user.image_orders.order(:placement)
+      render 'index.json.jb'
+    end
   end
 
   def show
