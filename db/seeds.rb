@@ -100,3 +100,176 @@ ImageOrder.create!([
 # [24, "Hogsmade", "hogsmade@gmail.com", "$2a$12$Jl9WKsstb2IisAERN8pZV.AAefkAb8QBd7Q97rIFS9YYFk7TBPy8.", Wed, 13 Nov 2019 16:12:21 UTC +00:00, Wed, 13 Nov 2019 16:12:21 UTC +00:00], 
 
 # [25, "Rohan", "rohan@gmail.com", "$2a$12$Bl8nPfpkqqjiNZkLRCXFBuiNN4wxU2f6fliTydyBRLp/3KCnnHoxi", Wed, 13 Nov 2019 16:12:55 UTC +00:00, Wed, 13 Nov 2019 16:12:55 UTC +00:00]]
+
+
+# <?xml version="1.0" encoding="utf-8" ?>
+# <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+# <!-- Active URL: https://ondras.zarovi.cz/sql/demo/ -->
+# <sql>
+# <datatypes db="mysql">
+#   <group label="Numeric" color="rgb(238,238,170)">
+#     <type label="Integer" length="0" sql="INTEGER" quote=""/>
+#     <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+#     <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+#     <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+#     <type label="INT" length="0" sql="INT" quote=""/>
+#     <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+#     <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+#     <type label="Single precision" length="0" sql="FLOAT" quote=""/>
+#     <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+#   </group>
+
+#   <group label="Character" color="rgb(255,200,200)">
+#     <type label="Char" length="1" sql="CHAR" quote="'"/>
+#     <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+#     <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+#     <type label="Binary" length="1" sql="BINARY" quote="'"/>
+#     <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+#     <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+#   </group>
+
+#   <group label="Date &amp; Time" color="rgb(200,255,200)">
+#     <type label="Date" length="0" sql="DATE" quote="'"/>
+#     <type label="Time" length="0" sql="TIME" quote="'"/>
+#     <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+#     <type label="Year" length="0" sql="YEAR" quote=""/>
+#     <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+#   </group>
+  
+#   <group label="Miscellaneous" color="rgb(200,200,255)">
+#     <type label="ENUM" length="1" sql="ENUM" quote=""/>
+#     <type label="SET" length="1" sql="SET" quote=""/>
+#     <type label="Bit" length="0" sql="bit" quote=""/>
+#   </group>
+# </datatypes><table x="759" y="658" name="User">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="name" null="1" autoincrement="0">
+# <datatype>VARCHAR</datatype>
+# <default>NULL</default></row>
+# <row name="email" null="1" autoincrement="0">
+# <datatype>VARCHAR</datatype>
+# <default>NULL</default></row>
+# <row name="password_digest" null="1" autoincrement="0">
+# <datatype>VARCHAR</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# <table x="1146" y="660" name="Image">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="url" null="1" autoincrement="0">
+# <datatype>VARCHAR</datatype>
+# <default>NULL</default></row>
+# <row name="label" null="1" autoincrement="0">
+# <datatype>VARCHAR</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# <table x="974" y="658" name="ImageOrder">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="user_id" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default><relation table="User" row="id" />
+# </row>
+# <row name="image_id" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default><relation table="Image" row="id" />
+# </row>
+# <row name="placement" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# <table x="1194" y="900" name="CanvasImage">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="label" null="1" autoincrement="0">
+# <datatype>VARCHAR</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# <table x="977" y="854" name="CanvasImageOrder">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="user_id" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default><relation table="User" row="id" />
+# </row>
+# <row name="canvas_image_id" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default><relation table="CanvasImage" row="id" />
+# </row>
+# <row name="placement" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# <table x="1438" y="687" name="Shape">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="canvas_image_id" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default><relation table="CanvasImage" row="id" />
+# </row>
+# <row name="x_position" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="y_position" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="height" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="width" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="red" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="green" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="blue" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="opacity" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# <table x="1441" y="1001" name="Color">
+# <row name="id" null="1" autoincrement="1">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <row name="canvas_image_id" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default><relation table="CanvasImage" row="id" />
+# </row>
+# <row name="red" null="1" autoincrement="0">
+# <datatype>INTEGER</datatype>
+# <default>NULL</default></row>
+# <key type="PRIMARY" name="">
+# <part>id</part>
+# </key>
+# </table>
+# </sql>
