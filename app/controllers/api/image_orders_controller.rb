@@ -1,6 +1,6 @@
 class Api::ImageOrdersController < ApplicationController
   
-  def index
+  def index #showing different image with differnet order that had been put in.
     @image_orders = current_user.image_orders.order(:placement)
 
     if @image_orders.length < 10
@@ -15,7 +15,7 @@ class Api::ImageOrdersController < ApplicationController
     render 'index.json.jb'
   end
 
-  def create
+  def create # will find the image order and change to desire one or create an image order when there are non.
     placement_datas = params[:placements] # an array of 9 hashes. Example: {image_id: 3, placement: 9}
 
     placement_datas.each do |placement_data|
